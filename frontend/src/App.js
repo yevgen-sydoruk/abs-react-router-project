@@ -1,6 +1,7 @@
 // Challenge / Exercise
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import RootLayout from "./components/Root";
 import HomePage from "./components/HomePage";
 import EventsPage from "./components/EventsPage";
 import EventDetailPage from "./components/EventDetailPage";
@@ -20,8 +21,8 @@ import MainNavigation from "./components/MainNavigation";
 //    - /events/<some-id> => EventDetailPage
 //    - /events/new => NewEventPage
 //    - /events/<some-id>/edit => EditEventPage
-// 3. Add a root layout that adds the <MainNavigation> component above all page components
-// 4. Add properly working links to the MainNavigation
+// 3. Add a root layout that adds the <MainNavigation> component above all page components !
+// 4. Add properly working links to the MainNavigation!
 // 5. Ensure that the links in MainNavigation receive an "active" class when active
 // 6. Output a list of dummy events to the EventsPage
 //    Every list item should include a link to the respective EventDetailPage
@@ -31,7 +32,7 @@ import MainNavigation from "./components/MainNavigation";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainNavigation />,
+    element: <RootLayout />,
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/events", element: <EventsPage /> },
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

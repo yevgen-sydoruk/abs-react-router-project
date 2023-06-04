@@ -8,10 +8,10 @@ function MainNavigation() {
       <nav>
         <ul className={classes.list}>
           <li>
-            <Link>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link>Events</Link>
+            <Link to="/events">Events</Link>
           </li>
         </ul>
       </nav>
