@@ -1,13 +1,13 @@
 // Challenge / Exercise
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import RootLayout from "./components/Root";
-import HomePage from "./components/HomePage";
-import EventsPage from "./components/EventsPage";
-import EventDetailPage from "./components/EventDetailPage";
-import NewEventPage from "./components/NewEventPage";
-import EditEventPage from "./components/EditEventPage";
-import MainNavigation from "./components/MainNavigation";
+import RootLayout from "./Root";
+import HomePage from "./pages/HomePage";
+import EventsPage from "./pages/EventsPage";
+import EventDetailPage from "./pages/EventDetailPage";
+import NewEventPage from "./pages/NewEventPage";
+import EditEventPage from "./pages/EditEventPage";
+import EventsRootLayout from "./pages/EventsRoot";
 
 // 1. Add five new (dummy) page components (content can be simple <h1> elements)
 //    - HomePage
@@ -34,11 +34,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/events", element: <EventsPage /> },
-      { path: "/events/:some-id", element: <EventDetailPage /> },
-      { path: "/events/new", element: <NewEventPage /> },
-      { path: "/events/:some-id/edit", element: <EditEventPage /> },
+      { index: true, element: <HomePage /> },
+
+      {
+        path: "events",
+        element: <EventsRootLayout />,
+        children: [
+          { index: true, element: <EventsPage /> },
+          { path: ":eventId", element: <EventDetailPage /> },
+          { path: "new", element: <NewEventPage /> },
+          { path: ":eventId/edit", element: <EditEventPage /> },
+        ],
+      },
     ],
   },
 ]);
