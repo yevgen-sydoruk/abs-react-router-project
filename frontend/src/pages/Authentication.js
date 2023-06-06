@@ -1,4 +1,5 @@
 import { json, redirect } from "react-router-dom";
+
 import AuthForm from "../components/AuthForm";
 
 function AuthenticationPage() {
@@ -42,7 +43,7 @@ export async function action({ request }) {
 
   localStorage.setItem("token", token);
   const expiration = new Date();
-  expiration.setHours(expiration.getHours + 1);
+  expiration.setHours(expiration.getHours() + 1);
   localStorage.setItem("expiration", expiration.toISOString());
 
   return redirect("/");

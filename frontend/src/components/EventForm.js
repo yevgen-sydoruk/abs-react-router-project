@@ -1,7 +1,7 @@
 import { Form, useNavigate, useNavigation, useActionData, json, redirect } from "react-router-dom";
 
-import classes from "./EventForm.module.css";
 import { getAuthToken } from "../util/auth";
+import classes from "./EventForm.module.css";
 
 function EventForm({ method, event }) {
   const data = useActionData();
